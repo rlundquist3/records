@@ -13,7 +13,7 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({width: 1200, height: 800});
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
@@ -58,52 +58,6 @@ function insertAlbumInDB(albumInfo) {
 
     var id = albumInfo.album_gnid;
 
-    /*var albumData = querystring.stringify({
-        'albumArtist':  albumInfo.album_artist_name,
-        'title':        albumInfo.album_title,
-        'year':         albumInfo.album_year,
-        'genreList':    albumInfo.genre,
-        'albumArtUrl':  albumInfo.album_art_url,
-        'tracks':       albumInfo.tracks
-    });
-
-    var postData = querystring.stringify({
-        'msg' : 'Hello World!'
-    });
-
-    //console.log(JSON.stringify(albumData));
-
-    var options = {
-        port:   5984,
-        path:   '/records/' + id,
-        method: 'POST',
-        //headers: {'Content-Length': albumData.length}
-        headers: {'Content-Length': postData.length}
-    };
-
-    console.log('xxx');
-    console.log(options.toString());
-
-    var req = http.request(options, function(res) {
-        console.log('STATUS: ' + res.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(res.headers));
-        res.setEncoding('utf8');
-        res.on('data', function (chunk) {
-            console.log('BODY: ' + chunk);
-        });
-    });
-
-    console.log('yyy');
-
-    req.on('error', function(e) {
-        console.log('problem with request: ' + e.message);
-    });
-
-    console.log('zzz');
-    //req.write(albumData);
-    req.write(postData);
-    req.end();*/
-
     couch.insert('records', {
         _id:          id,
         albumArtist:  albumInfo.album_artist_name,
@@ -116,6 +70,6 @@ function insertAlbumInDB(albumInfo) {
         if (err)
             return console.error(err);
 
-            console.dir(resData)
+            console.dir(resData);
     });
 }

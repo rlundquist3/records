@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Records</title>
+
+    <script>
+    var remote = require('remote');
+    var ipc = require('ipc');
+    var browserWindow = remote.getCurrentWindow();
+
+    function addClick() {
+        document.getElementById('addForm').style.visibility = 'visible';
+        /*ipc.on('asynchronous-reply', function(arg) {
+            console.log(arg); // prints "pong"
+        });
+        ipc.send('asynchronous-message', 'ping');*/
+    }
+
+    function searchClick() {
+        var artist = document.getElementById('artistInput').value;
+        var album = document.getElementById('albumInput').value;
+        ipc.on('asynchronous-reply', function(arg) {
+            console.log(arg); // prints "pong"
+        });
+        ipc.send('asynchronous-message', 'NewAlbum_' + artist + '_' + album);
+    }
+
+    </script>
+  </head>
+  <body>
+    <h1>Riley's Records</h1>
+    We are using node.js <script>document.write(process.version)</script>
+    and atom-shell <script>document.write(process.versions['atom-shell'])</script>.
+
+    <button onClick="addClick()">Add Album</button>
+
+    <form id="addForm" style="visibility:hidden">
+        Artist:<br>
+        <input id="artistInput" type="text" name="artist" value="">
+        <br>
+        Album:<br>
+        <input id="albumInput" type="text" name="album" value="">
+        <br><br>
+        <button onClick="searchClick()">Look Up</button>
+    </form>
+
+  </body>
+</html>
