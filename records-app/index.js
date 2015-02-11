@@ -72,7 +72,7 @@
   var remote = require('remote');
   var ipc = require('ipc');
   var browserWindow = remote.getCurrentWindow();
-  
+
   $lookupButton.on('click', searchClick);
 
   var receivedInfo;
@@ -113,5 +113,11 @@
           console.log(arg); // prints "pong"
       });
       ipc.send('addAlbum');
+  }
+
+  $closeRecordButton.on('click', closeClick);
+
+  function closeClick() {
+      $recordDialog.css('visibility', 'hidden');
   }
 })();

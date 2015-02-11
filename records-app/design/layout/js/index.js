@@ -110,4 +110,10 @@
       });
       ipc.send('addAlbum');
   }
+
+  $closeRecordButton.on('click', closeClick);
+
+  function closeClick() {
+      $recordDialog.css('visibility', 'hidden');
+  }
 })();
