@@ -62,7 +62,13 @@
   $addAlbumButton.on('click', showAddDialog);
 
   function showAddDialog() {
-    $addNewRecordDialog.css('visibility', 'visible');
+    $addNewRecordDialog.css('left', '25%');
+  }
+
+  $closeRecordButton.on('click', closeClick);
+
+  function closeClick() {
+    $recordDialog.css('left', '-70%');
   }
 
   var remote = require('remote');
@@ -73,7 +79,7 @@
 
   var receivedInfo;
   function searchClick() {
-      $addNewRecordDialog.css('visibility', 'hidden');
+      $addNewRecordDialog.css('left', '-49%');
 
       var artist = document.getElementsByName('artistInput')[0].value;
       var album = document.getElementsByName('albumInput')[0].value;
@@ -82,7 +88,7 @@
       });
       ipc.send('asynchronous-message', 'NewAlbum_' + artist + '_' + album);
 
-      $recordDialog.css('visibility', 'visible');
+      $recordDialog.css('left', '15%');
       ipc.on('albumResults', function(albumInfo) {
           receivedInfo = albumInfo;
           $artist.html(albumInfo.album_artist_name);
@@ -109,11 +115,5 @@
           console.log(arg); // prints "pong"
       });
       ipc.send('addAlbum');
-  }
-
-  $closeRecordButton.on('click', closeClick);
-
-  function closeClick() {
-      $recordDialog.css('visibility', 'hidden');
   }
 })();
