@@ -13,25 +13,31 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-  mainWindow = new BrowserWindow({width: 1200, height: 800});
+    mainWindow = new BrowserWindow({width: 1200, height: 800});
 
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+    mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
-  mainWindow.on('closed', function() {
-    mainWindow = null;
-  });
+    mainWindow.on('closed', function() {
+        mainWindow = null;
+    });
 
-  ipc.on('asynchronous-message', function(event, arg) {
-    event.sender.send('asynchronous-reply', 'pong');
+    ipc.on('asynchronous-message', function(event, arg) {
+        event.sender.send('asynchronous-reply', 'pong');
 
-    if (arg.split('_')[0] == 'NewAlbum') {
-        lookupAlbum(arg);
-    }
-});
+        if (arg.split('_')[0] == 'NewAlbum')
+            lookupAlbum(arg);
+    });
 
+    ipc.on('addAlbum', function(event, arg) {
+        event.sender.send('addReply', 'pong');
+
+        insertAlbumInDB();
+    });
 });
 
 //Look up input album with Gracenote
+var albumInfo;
+
 function lookupAlbum(arg) {
     var artist = arg.split('_')[1];
     var album = arg.split('_')[2];
@@ -45,12 +51,17 @@ function lookupAlbum(arg) {
     var gracenoteAPI = new Gracenote(clientId, clientTag, userId);
 
     gracenoteAPI.searchAlbum(artist, album, function(err, result) {
-        console.log(result[0]);
-        insertAlbumInDB(result[0]);
+        albumInfo = result[0];
+        console.log(albumInfo);
+        checkAlbum(albumInfo);
     }, Gracenote.BEST_MATCH_ONLY);
 }
 
-function insertAlbumInDB(albumInfo) {
+function checkAlbum(albumInfo) {
+    mainWindow.webContents.send('albumResults', albumInfo);
+}
+
+function insertAlbumInDB() {
     console.log('Inserting ' + albumInfo.album_title);
 
     var nodeCouchDB = require('node-couchdb');

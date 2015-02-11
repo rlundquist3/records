@@ -15,14 +15,14 @@
       <p>Riley's Records</p>
       <p><br></p>
 </div>
-    <div class="container clearfix">
+    <div class="container container-2 clearfix">
       <div class="artiststab js-artists-tab">&nbsp;artists</div>
       <p class="albumstab js-albums-tab">&nbsp;albums</p>
       <p class="genrestab js-genres-tab">genres</p>
       <div class="wishlisttab js-wishlist-tab">wishlist</div>
     </div>
   </div>
-  <div class="container container-3">
+  <div class="container _container container-3">
     <div class="wishlistlist clearfix js-wishlist-menu">
       <p class="addwish js-add-wish-button">add new</p>
       <p class="viewlist js-view-list-button">view</p>
@@ -41,36 +41,28 @@
     </div>
   </div>
   <div class="recordcontainer clearfix js-record-dialog">
-    <img class="image" src="images/ab_magpie.jpg">
-    <div class="artist">The Avett Brothers</div>
-    <div class="album">Magpie and the Dandelion</div>
-    <p class="year">2014</p>
-    <p class="genres">Genre(s)</p>
-    <input class="notes js-notes" name="notes" placeholder="notes" type="text">
-    <div class="tracks">
-      <p>1. Open-Ended Life</p>
-      <p>2. Morning Song</p>
-      <p>3. Never Been Alive</p>
-      <p>4. Another Is Waiting</p>
-      <p>5. Bring Your Love To Me</p>
-      <p>6. Good To You</p>
-      <p>7. Part From Me</p>
-      <p>8. Skin and Bones</p>
-      <p>9. Souls Like the Wheels [Live]</p>
-      <p>10. Vanity</p>
-      <p>11. The Clearness Is Gone</p>
-</div>
+    <div class="container _container container-4 clearfix">
+      <img class="albumcover js-cover" src="images/record-306x306.jpg" data-rimage data-src="images/record-306x306.jpg">
+      <input class="notes js-notes" name="notes" placeholder="notes" type="text">
+      <div class="container _container clearfix">
+        <p class="artist js-artist">Artist</p>
+        <p class="album js-album">Album</p>
+        <p class="year js-year">Year</p>
+        <p class="genres js-genres">Genre(s)</p>
+        <p class="tracks js-tracks">Tracks</p>
+      </div>
+    </div>
     <button class="_button js-add-record-button">add</button>
   </div>
   <div class="addnewrecordcontainer clearfix js-add-new-record-dialog">
     <p class="addnewrecord">add new record</p>
-    <div class="container clearfix">
+    <div class="container _container clearfix">
       <input class="inputartist js-artist-input" name="artistInput" placeholder="artist" type="text">
       <input class="inputalbum js-album-input" name="albumInput" placeholder="album" type="text">
       <button class="_button js-lookup-button">Look up</button>
     </div>
   </div>
-  <div class="container container-5 clearfix">
+  <div class="container _container container-7 clearfix">
     <div class="element"></div>
     <div class="text text-7">
       <p>2015</p>
@@ -81,5 +73,6 @@
 
   <script src="js/jquery-min.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/rimages.js"></script>
 </body>
 </html>

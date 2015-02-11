@@ -1,6 +1,6 @@
 body {
   background-color: #e7e7e7;
-  font: 400 1em/1.38 Oxygen;
+  font: 400 1.25em/1.38 Oxygen;
   color: #e7e7e7;
 }
 
@@ -8,7 +8,7 @@ body {
 .addwish {
   float: left;
   width: 102px;
-  font-size: 1.25em;
+  font-size: 1em;
   line-height: 1.38;
   text-align: center;
   color: #e7e7e7;
@@ -20,20 +20,19 @@ body {
   height: 40px;
   min-height: 31px;
   margin-left: 30.60959%;
-  font: 600 1.75em/1.38 'Josefin Slab';
+  font: 600 1.4em/1.38 'Josefin Slab';
   text-align: center;
   color: #e7e7e7;
 }
 
 .addnewrecordcontainer {
   visibility: hidden;
-  position: relative;
-  float: left;
-  clear: both;
+  position: fixed;
+  top: 242px;
+  left: 25.5%;
   z-index: 30;
   width: 49%;
   height: 368px;
-  margin: -392px 0 0 25.5%;
   background-color: #9e9e9e;
 }
 
@@ -49,13 +48,22 @@ body {
   position: relative;
   float: left;
   clear: both;
-  z-index: 32;
-  width: 59.2857142857%;
+  z-index: 34;
   min-height: 31px;
-  margin: -265px 0 0 40.70685%;
-  font-size: 1.875em;
+  margin-top: -2px;
+  font-size: 1.5em;
   line-height: 1.38;
   color: #393939;
+}
+
+.albumcover {
+  display: block;
+  position: relative;
+  float: left;
+  z-index: 39;
+  width: 42.9753335674%;
+  height: auto;
+  overflow: hidden;
 }
 
 .albumlist {
@@ -76,20 +84,12 @@ body {
 .artist {
   position: relative;
   float: left;
-  z-index: 31;
-  width: 59.2857142857%;
+  z-index: 33;
   min-height: 31px;
-  margin: 24px 0 0 1.40625%;
-  font-size: 1.875em;
+  margin-left: -0.16967%;
+  font-size: 1.5em;
   line-height: 1.38;
   color: #393939;
-}
-
-.container .container {
-  float: right;
-  width: 408px;
-  height: 40px;
-  margin: 160px 7.5% 0 0;
 }
 
 .container .element {
@@ -123,16 +123,15 @@ body {
 }
 
 .genrelist .text {
-  font-size: 1.25em;
+  font-size: 1em;
   text-align: center;
 }
 
 .genres {
-  position: relative;
   float: left;
-  z-index: 37;
-  margin: -202px 0 0 40.70685%;
-  font-size: 1em;
+  clear: both;
+  margin-left: -0.01184%;
+  font-size: 0.8em;
   font-weight: 400;
   line-height: 1.38;
   color: rgb(0, 0, 0);
@@ -145,19 +144,12 @@ body {
   min-height: 146px;
   margin: 34px 0 0 7.5%;
   padding-bottom: 15px;
-  font: 600 4.688em/1 'Josefin Slab';
+  font: 600 3.75em/1 'Josefin Slab';
   color: #e7e7e7;
 }
 
-.image {
-  display: block;
-  position: relative;
-  float: left;
-  z-index: 34;
-  width: 306px;
-  height: auto;
-  margin: 24px 0 0 2.8125%;
-  overflow: hidden;
+.home p {
+  margin-bottom: 1em;
 }
 
 .inputalbum {
@@ -169,7 +161,7 @@ body {
   margin-top: 12px;
   padding: 0 10px;
   background-color: rgb(242, 242, 242);
-  font: 400 0.813em/1.38 'Josefin Slab';
+  font: 400 0.65em/1.38 'Josefin Slab';
   color: rgb(0, 0, 0);
 }
 
@@ -180,7 +172,7 @@ body {
   height: 30px;
   padding: 0 10px;
   background-color: rgb(242, 242, 242);
-  font: 400 0.813em/1.38 'Josefin Slab';
+  font: 400 0.65em/1.38 'Josefin Slab';
   color: rgb(0, 0, 0);
 }
 
@@ -188,7 +180,7 @@ body {
   float: left;
   clear: both;
   width: 102px;
-  font-size: 1.25em;
+  font-size: 1em;
   line-height: 1.38;
   text-align: center;
   color: #e7e7e7;
@@ -198,13 +190,14 @@ body {
   display: block;
   position: relative;
   float: left;
+  clear: both;
   z-index: 38;
-  width: 33.6458333333%;
+  width: 39.6923279494%;
   height: 31px;
-  margin: 10px 0 0 5.5971%;
+  margin: 12px 0 0 -0.0197507023%;
   padding: 0 10px;
   background-color: rgb(242, 242, 242);
-  font-size: 0.813em;
+  font-size: 0.65em;
   font-weight: 400;
   line-height: 1.38;
   color: rgb(0, 0, 0);
@@ -212,12 +205,11 @@ body {
 
 .recordcontainer {
   visibility: hidden;
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 39;
+  position: fixed;
+  top: 242px;
+  left: 15%;
+  z-index: 41;
   width: 70%;
-  margin: 84px 0 0 15%;
   background-color: #9e9e9e;
 }
 
@@ -228,30 +220,23 @@ body {
 }
 
 .tracks {
-  position: relative;
   float: left;
-  z-index: 33;
-  width: 40.1804315476%;
+  clear: both;
   min-height: 244px;
-  margin: -180px 0 0 1.40625%;
+  margin-left: -0.15783%;
   padding: 8px;
-  font-size: 1em;
+  font-size: 0.8em;
   font-weight: 400;
   line-height: 0.5;
   text-indent: 20px;
   color: rgb(0,0,0);
 }
 
-.home p,
-.tracks p {
-  margin-bottom: 1em;
-}
-
 .viewlist {
   float: left;
   clear: both;
   width: 98.0392156862%;
-  font-size: 1.25em;
+  font-size: 1em;
   line-height: 1.38;
   text-align: center;
   color: #e7e7e7;
@@ -280,17 +265,15 @@ body {
   width: 25%;
   height: 40px;
   min-height: 31px;
-  font: 600 1.75em/1.38 'Josefin Slab';
+  font: 600 1.4em/1.38 'Josefin Slab';
   text-align: center;
   color: #e7e7e7;
 }
 
 .year {
-  position: relative;
   float: left;
-  z-index: 36;
-  margin: -224px 0 0 40.70685%;
-  font-size: 1em;
+  clear: both;
+  font-size: 0.8em;
   font-weight: 400;
   line-height: 1.38;
   color: rgb(0, 0, 0);
@@ -301,7 +284,7 @@ body {
   height: 26px;
   border-radius: 3px;
   background-color: rgb(222, 222, 222);
-  font: 400 1em/1.38 'Josefin Slab';
+  font: 400 0.8em/1.38 'Josefin Slab';
   text-align: center;
   color: rgb(0, 0, 0);
 }
@@ -313,11 +296,17 @@ body {
   margin: 13px 0 0 61.27451%;
 }
 
+.container ._container {
+  float: left;
+  width: 55.617977528%;
+  margin: -306px 0 0 4.66994%;
+}
+
 .recordcontainer ._button {
   position: absolute;
   bottom: 24px;
   right: 24px;
-  z-index: 35;
+  z-index: 31;
   width: 9.5498511904%;
 }
 
@@ -330,6 +319,13 @@ body {
   background-color: #393939;
 }
 
+.container-2 {
+  float: right;
+  width: 408px;
+  height: 40px;
+  margin: 160px 7.5% 0 0;
+}
+
 .container-3 {
   position: relative;
   float: right;
@@ -340,7 +336,15 @@ body {
   margin: -163px 7.5% 0 0;
 }
 
-.container-5 {
+.container-4 {
+  position: relative;
+  float: left;
+  z-index: 40;
+  width: 84.7451636904%;
+  margin: 26px 0 0 2.85528%;
+}
+
+.container-7 {
   position: absolute;
   top: 988px;
   left: 0;
@@ -373,6 +377,6 @@ body {
   z-index: 2;
   margin: 66px 0 0 7.5%;
   font-family: 'Josefin Slab';
-  font-size: 1.75em;
+  font-size: 1.4em;
   font-weight: 600;
 }

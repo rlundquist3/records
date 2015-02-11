@@ -4,7 +4,13 @@
   var $artistInput = $('.js-artist-input');
   var $addNewRecordDialog = $('.js-add-new-record-dialog');
   var $addRecordButton = $('.js-add-record-button');
+  var $tracks = $('.js-tracks');
+  var $genres = $('.js-genres');
+  var $year = $('.js-year');
+  var $album = $('.js-album');
+  var $artist = $('.js-artist');
   var $notes = $('.js-notes');
+  var $cover = $('.js-cover');
   var $recordDialog = $('.js-record-dialog');
   var $newestAlbumsButton = $('.js-newest-albums-button');
   var $addAlbumButton = $('.js-add-album-button');
