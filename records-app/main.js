@@ -15,7 +15,7 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
     mainWindow = new BrowserWindow({width: 1200, height: 800});
 
-    mainWindow.loadUrl('file://' + __dirname + '/index.html');
+    mainWindow.loadUrl('file://' + __dirname + '/design/layout/index.html');
 
     mainWindow.on('closed', function() {
         mainWindow = null;
@@ -77,6 +77,16 @@ function insertAlbumInDB() {
         genreList:    albumInfo.genre,
         albumArtUrl:  albumInfo.album_art_url,
         tracks:       albumInfo.tracks
+    }, function (err, resData) {
+        if (err)
+            return console.error(err);
+
+            console.dir(resData);
+    });
+
+    couch.insert('album-covers', {
+        _id:          id,
+        albumArtUrl:  albumInfo.album_art_url
     }, function (err, resData) {
         if (err)
             return console.error(err);

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>Records</title>
+  <link href="http://fonts.googleapis.com/css?family=Oxygen:400,400|Josefin+Slab:600,100,400" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/standardize.css">
+  <link rel="stylesheet" href="css/index-grid.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="body page-index clearfix">
+  <div class="container container-1 clearfix">
+    <div class="home">
+      <p>Riley's Records</p>
+      <p><br></p>
+</div>
+    <div class="container container-2 clearfix">
+      <div class="artiststab js-artists-tab">&nbsp;artists</div>
+      <p class="albumstab js-albums-tab">&nbsp;albums</p>
+      <p class="genrestab js-genres-tab">genres</p>
+      <div class="wishlisttab js-wishlist-tab">wishlist</div>
+    </div>
+  </div>
+  <div class="container _container container-3">
+    <div class="wishlistlist clearfix js-wishlist-menu">
+      <p class="addwish js-add-wish-button">add new</p>
+      <p class="viewlist js-view-list-button">view</p>
+    </div>
+    <div class="genrelist clearfix js-genres-menu">
+      <p class="text text-1">alternative</p>
+      <p class="text text-2">bluegrass</p>
+      <p class="text text-3">blues</p>
+      <p class="text text-4">folk</p>
+      <p class="text text-5">jazz</p>
+      <p class="text text-6">rock</p>
+    </div>
+    <div class="albumlist clearfix js-albums-menu">
+      <p class="addalbum js-add-album-button">add new</p>
+      <p class="newestalbums js-newest-albums-button">newest</p>
+    </div>
+  </div>
+  <div class="recordcontainer clearfix js-record-dialog">
+    <div class="container _container container-4 clearfix">
+      <img class="albumcover js-cover" src="images/record-306x306.jpg" data-rimage data-src="images/record-306x306.jpg">
+      <input class="notes js-notes" name="notes" placeholder="notes" type="text">
+      <div class="container _container clearfix">
+        <p class="artist js-artist">artist loading...</p>
+        <p class="album js-album">album loading...</p>
+        <p class="year js-year">...</p>
+        <p class="genres js-genres">...</p>
+        <p class="tracks js-tracks">tracks loading...</p>
+      </div>
+    </div>
+    <div class="container _container container-6 clearfix">
+      <button class="_button _button-1 js-close-record-button">close</button>
+      <button class="_button _button-2 js-add-record-button">add</button>
+    </div>
+  </div>
+  <div class="addnewrecordcontainer clearfix js-add-new-record-dialog">
+    <p class="addnewrecord">add new record</p>
+    <div class="container _container clearfix">
+      <input class="inputartist js-artist-input" name="artistInput" placeholder="artist" type="text">
+      <input class="inputalbum js-album-input" name="albumInput" placeholder="album" type="text">
+      <button class="_button js-lookup-button">Look up</button>
+    </div>
+  </div>
+  <div class="container _container container-8 clearfix">
+    <div class="element"></div>
+    <div class="text text-7">
+      <p>2015</p>
+      <p>Riley Lundquist</p>
+</div>
+  </div>
+  <div class="element element-2"></div>
+
+  <script src="js/jquery-min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/rimages.js"></script>
+</body>
+</html>
