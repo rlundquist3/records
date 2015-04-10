@@ -73,16 +73,27 @@
   var ipc = require('ipc');
   var browserWindow = remote.getCurrentWindow();
 
-  $lookupButton.on('click', searchClick);
+  $searchButton.on('click', searchClick);
+
+  function searchClick() {
+      var searchInput = document.getElementsByName('searchInput')[0].value;
+
+      ipc.on('searchReply', function(arg) {
+          console.log(arg);
+      });
+      ipc.send('search', searchInput);
+  }
+
+  $lookupButton.on('click', lookupClick);
 
   var receivedInfo;
-  function searchClick() {
+  function lookupClick() {
       $addNewRecordDialog.css('left', '-49%');
 
       var artist = document.getElementsByName('artistInput')[0].value;
       var album = document.getElementsByName('albumInput')[0].value;
       ipc.on('asynchronous-reply', function(arg) {
-          console.log(arg); // prints "pong"
+          console.log(arg);
       });
       ipc.send('asynchronous-message', 'NewAlbum_' + artist + '_' + album);
 

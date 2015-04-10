@@ -13,6 +13,7 @@
   var $notes = $('.js-notes');
   var $cover = $('.js-cover');
   var $recordDialog = $('.js-record-dialog');
+  var $searchButton = $('.js-search-button');
   var $newestAlbumsButton = $('.js-newest-albums-button');
   var $addAlbumButton = $('.js-add-album-button');
   var $albumsMenu = $('.js-albums-menu');
@@ -20,11 +21,23 @@
   var $viewListButton = $('.js-view-list-button');
   var $addWishButton = $('.js-add-wish-button');
   var $wishlistMenu = $('.js-wishlist-menu');
+  var $searchInput = $('.js-search-input');
   var $wishlistTab = $('.js-wishlist-tab');
   var $genresTab = $('.js-genres-tab');
   var $albumsTab = $('.js-albums-tab');
   var $artistsTab = $('.js-artists-tab');
 
+
+  /*$artistsTabTab.on({'mouseenter': showArtistsMenu});
+  $artistsTab.on('mouseleave', hideArtistsMenu);
+
+  function showArtistsMenu() {
+    $artistMenu.css('bottom', -54);
+  }
+
+  function hideArtistsMenu() {
+    $artistMenu.css('bottom', 0);
+  }*/
 
   $albumsTab.on({'mouseenter': showAlbumsMenu});
   $albumsMenu.on('mouseleave', hideAlbumsMenu);
@@ -75,16 +88,27 @@
   var ipc = require('ipc');
   var browserWindow = remote.getCurrentWindow();
 
-  $lookupButton.on('click', searchClick);
+  $searchButton.on('click', searchClick);
+
+  function searchClick() {
+      var searchInput = document.getElementsByName('searchInput')[0].value;
+
+      ipc.on('searchReply', function(arg) {
+          console.log(arg);
+      });
+      ipc.send('search', searchInput);
+  }
+
+  $lookupButton.on('click', lookupClick);
 
   var receivedInfo;
-  function searchClick() {
+  function lookupClick() {
       $addNewRecordDialog.css('left', '-49%');
 
       var artist = document.getElementsByName('artistInput')[0].value;
       var album = document.getElementsByName('albumInput')[0].value;
       ipc.on('asynchronous-reply', function(arg) {
-          console.log(arg); // prints "pong"
+          console.log(arg);
       });
       ipc.send('asynchronous-message', 'NewAlbum_' + artist + '_' + album);
 

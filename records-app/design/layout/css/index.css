@@ -73,9 +73,9 @@ body {
 .albumlist {
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 25%;
   z-index: 7;
-  width: 33.33%;
+  width: 25%;
   height: 54px;
   background-color: #9e9e9e;
   -webkit-transition: all .3s;
@@ -114,9 +114,9 @@ body {
 .genrelist {
   position: absolute;
   bottom: 0;
-  left: 33.33%;
+  left: 50%;
   z-index: 14;
-  width: 33.33%;
+  width: 25%;
   height: 162px;
   background-color: #9e9e9e;
   -webkit-transition: all .3s;
@@ -264,9 +264,9 @@ body {
 .wishlistlist {
   position: absolute;
   bottom: 0;
-  left: 66.66%;
+  left: 75%;
   z-index: 17;
-  width: 33.33%;
+  width: 25%;
   height: 54px;
   background-color: #9e9e9e;
   -webkit-transition: all .3s;
@@ -313,6 +313,21 @@ body {
   background-color: rgb(74, 175, 183);
 }
 
+._input {
+  display: block;
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 45;
+  width: 23.5833333333%;
+  height: 26px;
+  margin: -66px 0 0 76%;
+  padding: 0 10px;
+  background-color: rgb(242, 242, 242);
+  font: 400 0.65em/1.38 'Josefin Slab';
+  color: rgb(0, 0, 0);
+}
+
 .addnewrecordcontainer ._button {
   float: left;
   clear: both;
@@ -351,9 +366,8 @@ body {
 .container-3 {
   position: relative;
   float: right;
-  clear: both;
   z-index: 17;
-  width: 306px;
+  width: 408px;
   height: 199px;
   margin: -200px 7.5% 0 0;
 }
@@ -416,10 +430,19 @@ body {
   font-weight: 600;
 }
 
-.container ._button-1 {
-  float: left;
+._button-1 {
+  position: relative;
+  float: right;
+  clear: both;
+  z-index: 44;
+  width: 80px;
+  margin: -34px 5px 0 0;
 }
 
 .container ._button-2 {
+  float: left;
+}
+
+.container ._button-3 {
   float: right;
 }

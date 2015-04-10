@@ -3,6 +3,9 @@ var BrowserWindow = require('browser-window');
 var ipc = require('ipc');
 var dialog = require('dialog');
 
+var nodeCouchDB = require('node-couchdb');
+var couch = new nodeCouchDB('localhost', 5984);
+
 require('crash-reporter').start();
 
 var mainWindow = null;
@@ -33,6 +36,12 @@ app.on('ready', function() {
 
         insertAlbumInDB();
     });
+
+    ipc.on('search', function(event, arg) {
+        event.sender.send('searchReply', 'pong');
+
+        searchDB(arg);
+    })
 });
 
 //Look up input album with Gracenote
@@ -64,9 +73,6 @@ function checkAlbum(albumInfo) {
 function insertAlbumInDB() {
     console.log('Inserting ' + albumInfo.album_title);
 
-    var nodeCouchDB = require('node-couchdb');
-    var couch = new nodeCouchDB('localhost', 5984);
-
     var id = albumInfo.album_gnid;
 
     couch.insert('records', {
@@ -93,4 +99,31 @@ function insertAlbumInDB() {
 
             console.dir(resData);
     });
+}
+
+function searchDB(searchInput) {
+
+    var albumSearchUrl = '_design/album_search/_view/AlbumSearch?key=\"' + searchInput.toLowerCase() + '\"';
+    var artistSearchUrl = '_design/artist_search/_view/ArtistSearch?key=\"' + searchInput.toLowerCase() + '\"';
+
+    var results = [];
+
+    couch.get('records', albumSearchUrl, null, function(err, resData) {
+        if(err)
+            return console.error(err);
+
+        console.dir(resData);
+        results.push(resData.data.rows);
+        console.log(results);
+    });
+    couch.get('records', artistSearchUrl, null, function(err, resData) {
+        if(err)
+            return console.error(err);
+
+        console.dir(resData);
+        results.push(resData.data.rows);
+        console.log(results);
+    });
+    console.log(results);
+    console.log('x');
 }
